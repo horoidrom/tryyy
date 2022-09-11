@@ -25,9 +25,13 @@ jobs:
     - name: Cleanup
       uses: rokibhasansagar/slimhub_actions@main
       # That's it! Now use your normal steps
-    - uses: actions/checkout@v2
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+    - uses: addnab/docker-run-action@v3
+      with:
+       image: tedwang/aosp-v5
+       shell: /bin/bash
+       run: |
+         echo "first line"
+         echo "second line"
 
 
     - name: Uploading TWRP builds
